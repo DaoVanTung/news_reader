@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/news/widgets/article_small.dart';
 
+import 'widgets/article_small.dart';
 import 'news_controller.dart';
 import 'news_model.dart';
 import 'widgets/article_top_headline.dart';
@@ -45,21 +45,24 @@ class NewsView extends StatelessWidget {
                       },
                     ),
                     NewsSection(
-                      height: 180,
+                      height: 140,
                       articles: model.articles,
                       itemBuilder: (context, index) {
                         final article = model.articles.elementAt(index);
-                        return ArticleSmall();
+                        return ArticleSmall(
+                          article: article,
+                          size: size,
+                        );
                       },
                     ),
-                    NewsSection(
-                      height: 180,
-                      articles: model.articles,
-                      itemBuilder: (context, index) {
-                        final article = model.articles.elementAt(index);
-                        return Container();
-                      },
-                    ),
+                    // NewsSection(
+                    //   height: 180,
+                    //   articles: model.articles,
+                    //   itemBuilder: (context, index) {
+                    //     final article = model.articles.elementAt(index);
+                    //     return Container();
+                    //   },
+                    // ),
                   ],
                 ),
               );
